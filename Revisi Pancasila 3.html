@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pancasila & Eco-Craft: Sila 2 & Sila 3</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #a5d6a7 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+        .sila-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .sila-card:hover {
+            transform: translateY(-6px);
+        }
+        @media print {
+            .no-print { display: none !important; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans text-slate-800 min-h-screen flex flex-col">
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-40 bg-emerald-800 text-white shadow-lg no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-amber-400 flex items-center justify-center text-emerald-900 font-bold text-xl shadow-md">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-bold text-lg sm:text-xl leading-tight">Eco-Pancasila</h1>
+                        <p class="text-xs text-emerald-200">Fokus Sila 2 & Sila 3</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex space-x-1 lg:space-x-2 text-sm font-medium">
+                    <button onclick="scrollToSection('sila-matrix')" class="px-3 py-2 rounded-lg hover:bg-emerald-700 transition">Nilai Sila 2 & 3</button>
+                    <button onclick="scrollToSection('diy-steps')" class="px-3 py-2 rounded-lg hover:bg-emerald-700 transition">Panduan DIY</button>
+                    <button onclick="scrollToSection('feedback-section')" class="px-3 py-2 rounded-lg bg-amber-400 text-emerald-950 font-semibold hover:bg-amber-300 transition shadow">Kritik & Saran</button>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-2 rounded-lg hover:bg-emerald-700 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-emerald-900 px-4 pt-2 pb-4 space-y-2 border-t border-emerald-800">
+            <button onclick="scrollToSection('sila-matrix')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-emerald-800">Nilai Sila 2 & 3</button>
+            <button onclick="scrollToSection('diy-steps')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-emerald-800">Panduan DIY</button>
+            <button onclick="scrollToSection('feedback-section')" class="block w-full text-left px-3 py-2 rounded-md bg-amber-400 text-emerald-950 font-bold">Kritik & Saran</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="gradient-bg py-12 md:py-16 px-4 sm:px-6 lg:px-8 text-slate-800 no-print">
+            <div class="max-w-5xl mx-auto text-center space-y-6">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 text-emerald-800 font-semibold text-xs sm:text-sm shadow-sm backdrop-blur">
+                    <i class="fa-solid fa-seedling text-emerald-600"></i> Proyek Pembelajaran Pancasila Berbasis Lingkungan
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
+                    Pengamalan <span class="text-emerald-700">Sila 2 & Sila 3</span> Melalui Daur Ulang Botol Plastik
+                </h2>
+                <p class="text-base sm:text-lg text-slate-700 max-w-3xl mx-auto leading-relaxed">
+                    Wujud nyata kepedulian kemanusiaan terhadap lingkungan (Sila 2) dan semangat gotong royong kebersamaan (Sila 3) dalam pembuatan pot tanaman dari limbah botol bekas.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 pt-4">
+                    <button onclick="scrollToSection('sila-matrix')" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-lg transition flex items-center gap-2">
+                        <i class="fa-solid fa-book-open"></i> Pelajari Pengamalan Sila
+                    </button>
+                    <button onclick="scrollToSection('feedback-section')" class="px-6 py-3 bg-white hover:bg-slate-100 text-slate-800 font-bold rounded-xl shadow transition border border-slate-200 flex items-center gap-2">
+                        <i class="fa-solid fa-comments text-emerald-600"></i> Kirim Kritik & Saran
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 1: Sila 2 & Sila 3 Values Matrix + 3 Photos Gallery -->
+        <section id="sila-matrix" class="py-12 md:py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-star text-amber-500"></i>
+                    Penerapan Sila 2 & Sila 3 Pancasila
+                </h2>
+                <p class="text-slate-600 mt-2">Analisis mendalam keterkaitan pembuatan pot daur ulang dengan Sila Ke-2 dan Sila Ke-3</p>
+            </div>
+
+            <!-- GALERI 3 FOTO DOKUMENTASI ASLI -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
+                <div class="overflow-hidden rounded-2xl shadow-md border border-slate-200 bg-white group h-56 sm:h-64">
+                    <img src="foto1.jpeg" alt="Dokumentasi 1"  class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                </div>
+                <div class="overflow-hidden rounded-2xl shadow-md border border-slate-200 bg-white group h-56 sm:h-64">
+                    <img src="foto2.jpeg" alt="Dokumentasi 2"  class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                </div>
+                <div class="overflow-hidden rounded-2xl shadow-md border border-slate-200 bg-white group h-56 sm:h-64">
+                    <img src="foto3.jpeg" alt="Dokumentasi 3"  class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Sila 2 -->
+                <div class="sila-card glass-card rounded-2xl p-6 sm:p-8 shadow-md border-t-4 border-red-500 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-12 h-12 rounded-xl bg-red-100 text-red-700 flex items-center justify-center font-bold text-xl">2</span>
+                            <i class="fa-solid fa-heart text-3xl text-red-500"></i>
+                        </div>
+                        <h3 class="font-bold text-xl text-slate-900 mb-3">Sila Ke-2: Kemanusiaan yang Adil dan Beradab</h3>
+                        <div class="space-y-3 text-sm text-slate-600 leading-relaxed mb-6">
+                            <p><strong>Bentuk Pengamalan Utama:</strong> Menumbuhkan empati dan rasa kepedulian terhadap sesama manusia dengan menjaga lingkungan tetap bersih, rapi, dan sehat.</p>
+                            <ul class="list-disc list-inside space-y-1 text-xs sm:text-sm text-slate-700">
+                                <li>Menciptakan lingkungan hidup yang bebas dari penumpukan limbah mikroplastik.</li>
+                                <li>Menghargai hak setiap orang untuk menghirup udara bersih dan menikmati keasrian lingkungan.</li>
+                                <li>Mewujudkan perilaku beradab dengan tidak membuang sampah sembarangan.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-red-50/80 p-4 rounded-xl border border-red-200/60 text-xs text-red-900">
+                        <i class="fa-solid fa-lightbulb mr-1 text-red-600"></i> <em>"Merawat lingkungan adalah tindakan beradab untuk melindungi kesehatan dan kenyamanan hidup bersama."</em>
+                    </div>
+                </div>
+
+                <!-- Sila 3 -->
+                <div class="sila-card glass-card rounded-2xl p-6 sm:p-8 shadow-md border-t-4 border-emerald-600 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xl">3</span>
+                            <i class="fa-solid fa-hands-holding-circle text-3xl text-emerald-600"></i>
+                        </div>
+                        <h3 class="font-bold text-xl text-slate-900 mb-3">Sila Ke-3: Persatuan Indonesia</h3>
+                        <div class="space-y-3 text-sm text-slate-600 leading-relaxed mb-6">
+                            <p><strong>Bentuk Pengamalan Utama:</strong> Bekerja sama dan bergotong-royong dalam mengumpulkan sampah botol bekas serta menghijaukan lingkungan sekolah secara bersama-sama.</p>
+                            <ul class="list-disc list-inside space-y-1 text-xs sm:text-sm text-slate-700">
+                                <li>Menggalang semangat gotong royong antar siswa dalam aksi kelestarian lingkungan.</li>
+                                <li>Menghilangkan perbedaan dan menyatukan tujuan demi lingkungan yang lebih asri.</li>
+                                <li>Menjaga kebersamaan kelompok dalam membagi tugas pembuatan pot secara adil.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-emerald-50/80 p-4 rounded-xl border border-emerald-200/60 text-xs text-emerald-900">
+                        <i class="fa-solid fa-lightbulb mr-1 text-emerald-600"></i> <em>"Gotong royong menjaga kebersihan dan kelestarian alam mempererat persatuan serta rasa kebersamaan."</em>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: DIY Step-by-Step Guide with Sila Badges -->
+        <section id="diy-steps" class="py-12 bg-slate-100/70 border-y border-slate-200 no-print">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-10">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-hammer text-emerald-600"></i>
+                        Panduan Langkah Pembuatan Pot <span class="text-emerald-600">(DIY)</span>
+                    </h2>
+                    <p class="text-slate-600 mt-2">Setiap alur pembuatan pot mengandung nilai pengamalan Sila 2 dan Sila 3</p>
+                </div>
+
+                <!-- Interactive Step Navigator -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <!-- Left: Steps List -->
+                    <div class="lg:col-span-5 space-y-3" id="step-list">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <!-- Right: Active Step Detail Display -->
+                    <div class="lg:col-span-7 bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-100 flex flex-col justify-between min-h-[420px]">
+                        <div>
+                            <div class="flex flex-wrap items-center justify-between gap-2 border-b pb-4 mb-4">
+                                <span id="step-badge" class="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-xs font-bold uppercase tracking-wider">Langkah 1 dari 4</span>
+                                <span id="step-sila-tag" class="px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-800 border border-red-200">
+                                    <i class="fa-solid fa-heart mr-1"></i> Pengamalan Sila 2
+                                </span>
+                            </div>
+                            
+                            <!-- Progress Bar -->
+                            <div class="w-full bg-slate-100 rounded-full h-1.5 mb-6 overflow-hidden">
+                                <div id="progress-bar" class="bg-emerald-600 h-1.5 rounded-full transition-all duration-300" style="width: 25%"></div>
+                            </div>
+
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg">
+                                    <i class="fa-solid fa-bottle-water"></i>
+                                </div>
+                                <h3 id="step-title" class="text-xl sm:text-2xl font-bold text-slate-900">Pengumpulan Botol & Pembersihan</h3>
+                            </div>
+
+                            <p id="step-desc" class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+                                Kumpulkan botol plastik bekas 1.5 Liter di lingkungan sekitar. Bersihkan botol dari sisa minuman dan stiker bekas agar siap diolah menjadi pot yang higienis.
+                            </p>
+
+                            <!-- Check-list -->
+                            <div id="step-extra" class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                                <h4 class="font-semibold text-slate-800 text-sm mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-list-check text-emerald-600"></i> Poin Penting Langkah Ini:
+                                </h4>
+                                <ul class="text-xs sm:text-sm text-slate-600 space-y-2" id="step-extra-list">
+                                    <!-- Dynamic -->
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Step Navigation controls -->
+                        <div class="flex items-center justify-between pt-6 mt-6 border-t border-slate-100">
+                            <button id="prev-step-btn" onclick="changeStep(-1)" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs sm:text-sm transition flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
+                                <i class="fa-solid fa-arrow-left"></i> Sebelumnya
+                            </button>
+
+                            <!-- Indicators Dots -->
+                            <div class="flex gap-1.5" id="step-dots">
+                                <!-- Dynamic -->
+                            </div>
+
+                            <button id="next-step-btn" onclick="changeStep(1)" class="px-5 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl text-xs sm:text-sm transition shadow flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
+                                Selanjutnya <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Kritik & Saran (Public Input & PIN Protected Inbox) -->
+        <section id="feedback-section" class="py-12 md:py-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">Kotak Masukan</span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-2">
+                    Kritik & <span class="text-emerald-700">Saran Pengunjung</span>
+                </h2>
+                <p class="text-slate-600 text-sm sm:text-base mt-2">Punya masukan untuk proyek kami? Silakan tulis di bawah. (Inbox pesan hanya bisa dibuka oleh anggota kelompok menggunakan PIN).</p>
+            </div>
+
+            <!-- Form Input Publik (Bisa diisi siapa saja) -->
+            <div class="glass-card rounded-2xl shadow-xl p-6 sm:p-8 border border-slate-200 mb-10">
+                <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-200">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-comment-dots"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-base">Tulis Kritik / Saran Anda</h3>
+                        <p class="text-xs text-slate-500">Masukan Anda sangat berarti untuk pengembangan proyek ini.</p>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Nama Pengirim <span class="text-red-500">*</span></label>
+                            <input type="text" id="fb-name" placeholder="Contoh: Budi Santoso" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:outline-none text-sm bg-white">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Sebagai (Kelas / Umum)</label>
+                            <input type="text" id="fb-role" placeholder="Contoh: Siswa Kelas XI / Pengunjung" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:outline-none text-sm bg-white">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Pesan Kritik / Saran <span class="text-red-500">*</span></label>
+                        <textarea id="fb-msg" rows="3" placeholder="Tuliskan kritik atau saran membangun di sini..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:outline-none text-sm bg-white"></textarea>
+                    </div>
+                    <button onclick="submitFeedback()" class="w-full sm:w-auto px-6 py-3 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl shadow transition text-sm flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> Kirim Pesan
+                    </button>
+                </div>
+            </div>
+
+            <!-- PIN Protected Inbox (Hanya untuk Kelompok) -->
+            <div class="glass-card rounded-2xl shadow-xl p-6 sm:p-8 border border-slate-200">
+                <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-200">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-base">Inbox Khusus Kelompok</h3>
+                            <p class="text-xs text-slate-500">Masukkan PIN kelompok untuk membaca daftar kritik & saran masuk.</p>
+                        </div>
+                    </div>
+                    <button id="lock-inbox-btn" onclick="lockInbox()" class="hidden text-slate-400 hover:text-red-600 transition text-xs font-bold flex items-center gap-1">
+                        <i class="fa-solid fa-lock"></i> Kunci Lagi
+                    </button>
+                </div>
+
+                <!-- PIN Form Container -->
+                <div id="inbox-pin-box" class="max-w-sm mx-auto text-center py-6">
+                    <input type="password" id="inbox-pin-input" placeholder="Masukkan PIN Kelompok..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:outline-none text-center tracking-widest text-base font-bold mb-3">
+                    <button onclick="verifyInboxPin()" class="w-full py-2.5 bg-slate-800 hover:bg-slate-900 text-white font-bold rounded-xl transition text-sm">
+                        Buka Inbox Kelompok
+                    </button>
+                    <p id="inbox-error" class="text-xs text-red-500 mt-2 hidden font-semibold">PIN salah! Hanya untuk anggota kelompok.</p>
+                    
+                </div>
+
+                <!-- Message List Container (Hidden by Default) -->
+                <div id="inbox-messages-area" class="hidden space-y-4">
+                    <div class="flex items-center justify-between text-xs text-slate-500 pb-2">
+                        <span>Total Pesan Masuk: <strong id="msg-count" class="text-slate-900">0</strong></span>
+                        <button onclick="clearMessages()" class="text-red-600 hover:underline"><i class="fa-solid fa-trash mr-1"></i> Hapus Semua Pesan</button>
+                    </div>
+                    <div id="messages-list" class="space-y-3 max-h-96 overflow-y-auto pr-2">
+                        <!-- Dynamic items -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-xs sm:text-sm no-print">
+        <p>&copy; 2026 Eco-Pancasila Project. Dibuat dengan semangat Sila 2 & Sila 3 untuk Lingkungan Lestari.</p>
+    </footer>
+
+    <!-- Interactive Logic Script -->
+    <script>
+        const stepsData = [
+            {
+                title: "Pengumpulan Botol & Pembersihan",
+                badge: "Langkah 1 dari 4",
+                silaTag: '<i class="fa-solid fa-heart mr-1"></i> Pengamalan Sila 2',
+                silaClass: "bg-red-100 text-red-800 border-red-200",
+                desc: "Kumpulkan botol plastik bekas 1.5 Liter di lingkungan sekitar. Bersihkan botol dari sisa minuman dan stiker bekas agar siap diolah menjadi pot yang higienis.",
+                points: [
+                    "Pilih botol PET 1,5 liter yang masih utuh dan tidak berlubang.",
+                    "Buang sisa cairan, bilas bersih, lalu kupas stiker bekas.",
+                    "Pilah botol menurut warna dan ukuran agar mudah diolah bersama."
+                ]
+            },
+            {
+                title: "Pemotongan & Pembentukan Badan Pot",
+                badge: "Langkah 2 dari 4",
+                silaTag: '<i class="fa-solid fa-users mr-1"></i> Pengamalan Sila 3',
+                silaClass: "bg-emerald-100 text-emerald-800 border-emerald-200",
+                desc: "Bekerja sama memotong botol plastik menggunakan cutter/gunting sesuai pola kreatif yang telah didiskusikan bersama kelompok.",
+                points: [
+                    "Diskusikan bentuk pola potongan bersama anggota kelompok secara adil.",
+                    "Gunakan alat pemotong dengan hati-hati atau dampingi teman sekelompok.",
+                    "Pastikan hasil potongan rapi dan aman tidak melukai tangan."
+                ]
+            },
+            {
+                title: "Penghalasan & Personalisasi Pot",
+                badge: "Langkah 3 dari 4",
+                silaTag: '<i class="fa-solid fa-users mr-1"></i> Pengamalan Sila 3',
+                silaClass: "bg-emerald-100 text-emerald-800 border-emerald-200",
+                desc: "Bergotong royong mengecat dan menghias permukaan pot dengan motif ornamen nusantara atau warna hijau asri.",
+                points: [
+                    "Berbagi tugas pembagian cat warna dan alat kuas secara merata.",
+                    "Menyatukan ide kreatif masing-masing anggota ke dalam dekorasi pot.",
+                    "Menjemur pot di bawah sinar matahari hingga cat benar-benar kering."
+                ]
+            },
+            {
+                title: "Penanaman & Perawatan Bersama",
+                badge: "Langkah 4 dari 4",
+                silaTag: '<i class="fa-solid fa-star mr-1"></i> Pengamalan Sila 2 & 3',
+                silaClass: "bg-amber-100 text-amber-800 border-amber-200",
+                desc: "Mengisi pot dengan media tanam subur dan merawat tanaman secara berkala sebagai wujud kepedulian lingkungan hidup.",
+                points: [
+                    "Memasukkan kompos dan bibit tanaman secara gotong royong.",
+                    "Membuat jadwal piket penyiraman bersama antar anggota kelompok.",
+                    "Merawat kelangsungan hidup tanaman sebagai bentuk cinta alam."
+                ]
+            }
+        ];
+
+        let currentStep = 0;
+
+        function renderSteps() {
+            const listContainer = document.getElementById('step-list');
+            listContainer.innerHTML = '';
+            
+            stepsData.forEach((step, index) => {
+                const isActive = index === currentStep;
+                const activeClass = isActive 
+                    ? 'border-emerald-600 bg-emerald-50/50 shadow-md ring-2 ring-emerald-500/20' 
+                    : 'border-slate-200 bg-white hover:bg-slate-50';
+                
+                const badgeColor = index === 0 ? 'bg-red-100 text-red-700' : (index === 3 ? 'bg-amber-100 text-amber-700' : 'bg-emerald-100 text-emerald-700');
+                
+                listContainer.innerHTML += `
+                    <div onclick="setStep(${index})" class="p-4 rounded-2xl border cursor-pointer transition flex items-center justify-between ${activeClass}">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-xl ${isActive ? 'bg-emerald-700 text-white font-bold' : 'bg-slate-100 text-slate-700'} flex items-center justify-center text-sm font-semibold">
+                                ${index + 1}
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm sm:text-base text-slate-900">${step.title}</h4>
+                                <span class="inline-block mt-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold ${badgeColor}">
+                                    ${step.silaTag.replace(/<[^>]*>/g, '')}
+                                </span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
+                    </div>
+                `;
+            });
+
+            const data = stepsData[currentStep];
+            document.getElementById('step-badge').innerText = data.badge;
+            
+            const silaTagEl = document.getElementById('step-sila-tag');
+            silaTagEl.className = `px-3 py-1 rounded-full text-xs font-bold border ${data.silaClass}`;
+            silaTagEl.innerHTML = data.silaTag;
+
+            document.getElementById('step-title').innerText = data.title;
+            document.getElementById('step-desc').innerText = data.desc;
+
+            const progress = ((currentStep + 1) / stepsData.length) * 100;
+            document.getElementById('progress-bar').style.width = `${progress}%`;
+
+            const extraList = document.getElementById('step-extra-list');
+            extraList.innerHTML = '';
+            data.points.forEach(pt => {
+                extraList.innerHTML += `
+                    <li class="flex items-start gap-2.5">
+                        <i class="fa-solid fa-check text-emerald-600 mt-0.5 text-sm"></i>
+                        <span class="text-slate-700">${pt}</span>
+                    </li>`;
+            });
+
+            document.getElementById('prev-step-btn').disabled = currentStep === 0;
+            document.getElementById('next-step-btn').disabled = currentStep === stepsData.length - 1;
+
+            const dotsContainer = document.getElementById('step-dots');
+            dotsContainer.innerHTML = '';
+            stepsData.forEach((_, idx) => {
+                const dotActive = idx === currentStep ? 'w-6 bg-emerald-600' : 'w-2 bg-slate-300';
+                dotsContainer.innerHTML += `<div class="h-2 rounded-full transition-all ${dotActive}"></div>`;
+            });
+        }
+
+        function setStep(index) {
+            currentStep = index;
+            renderSteps();
+        }
+
+        function changeStep(direction) {
+            currentStep += direction;
+            if (currentStep < 0) currentStep = 0;
+            if (currentStep >= stepsData.length) currentStep = stepsData.length - 1;
+            renderSteps();
+        }
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function submitFeedback() {
+            const name = document.getElementById('fb-name').value.trim();
+            const role = document.getElementById('fb-role').value.trim() || 'Pengunjung';
+            const msg = document.getElementById('fb-msg').value.trim();
+
+            if (!name || !msg) {
+                alert('Nama dan Pesan wajib diisi!');
+                return;
+            }
+
+            const newFeedback = {
+                name: name,
+                role: role,
+                msg: msg,
+                date: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })
+            };
+
+            let feedbacks = JSON.parse(localStorage.getItem('eco_feedbacks')) || [];
+            feedbacks.unshift(newFeedback);
+            localStorage.setItem('eco_feedbacks', JSON.stringify(feedbacks));
+
+            alert('Terima kasih! Kritik dan saran berhasil dikirim.');
+            document.getElementById('fb-name').value = '';
+            document.getElementById('fb-role').value = '';
+            document.getElementById('fb-msg').value = '';
+            
+            if(!document.getElementById('inbox-messages-area').classList.contains('hidden')) {
+                loadMessages();
+            }
+        }
+
+        function verifyInboxPin() {
+            const pinInput = document.getElementById('inbox-pin-input').value;
+            const errorMsg = document.getElementById('inbox-error');
+            const correctPin = "z4tack_bi0n1s";
+
+            if (pinInput === correctPin) {
+                document.getElementById('inbox-pin-box').classList.add('hidden');
+                document.getElementById('inbox-messages-area').classList.remove('hidden');
+                document.getElementById('lock-inbox-btn').classList.remove('hidden');
+                errorMsg.classList.add('hidden');
+                document.getElementById('inbox-pin-input').value = '';
+                loadMessages();
+            } else {
+                errorMsg.classList.remove('hidden');
+            }
+        }
+
+        function lockInbox() {
+            document.getElementById('inbox-messages-area').classList.add('hidden');
+            document.getElementById('lock-inbox-btn').classList.add('hidden');
+            document.getElementById('inbox-pin-box').classList.remove('hidden');
+        }
+
+        function loadMessages() {
+            let feedbacks = JSON.parse(localStorage.getItem('eco_feedbacks')) || [];
+            const listContainer = document.getElementById('messages-list');
+            document.getElementById('msg-count').innerText = feedbacks.length;
+
+            if (feedbacks.length === 0) {
+                listContainer.innerHTML = `<div class="text-center py-8 text-slate-400 text-sm">Belum ada kritik atau saran masuk.</div>`;
+                return;
+            }
+
+            listContainer.innerHTML = '';
+            feedbacks.forEach((item) => {
+                listContainer.innerHTML += `
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-sm space-y-1">
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-slate-900">${item.name} <span class="text-xs font-normal text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full ml-1">${item.role}</span></span>
+                            <span class="text-[11px] text-slate-400">${item.date}</span>
+                        </div>
+                        <p class="text-slate-600 pt-1">${item.msg}</p>
+                    </div>
+                `;
+            });
+        }
+
+        function clearMessages() {
+            if(confirm('Yakin ingin menghapus semua pesan kritik dan saran?')) {
+                localStorage.removeItem('eco_feedbacks');
+                loadMessages();
+            }
+        }
+
+        window.onload = function() {
+            renderSteps();
+        };
+    </script>
+</body>
+</html>
